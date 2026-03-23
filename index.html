@@ -19,15 +19,16 @@
         .brand-logo-red { color: #E15A5A; }
         .brand-logo-blue { color: #0284c7; }
         
-        /* Плавные переходы для кнопок */
-        .btn-transition { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* Плавные переходы для кнопок - плавно (0.4с) */
+        .btn-transition { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-transition:hover { transform: scale(1.08); }
         
-        /* Анимация парения для карточек с обводкой - толще и темнее */
-        .hover-float { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 3px solid transparent; }
+        /* Анимация парения для карточек - плавно и с толстой обводкой */
+        .hover-float { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 5px solid transparent; }
         .hover-float:hover { 
-            transform: translateY(-12px) scale(1.04); 
+            transform: translateY(-15px) scale(1.06); 
             border-color: #0369a1;
-            box-shadow: 0 30px 40px -10px rgb(0 0 0 / 0.2); 
+            box-shadow: 0 35px 50px -15px rgb(0 0 0 / 0.25); 
         }
 
         /* Градиент для фона секций */
