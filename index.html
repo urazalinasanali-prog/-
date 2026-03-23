@@ -378,12 +378,19 @@
             const webhookUrl = "https://script.google.com/macros/s/AKfycby-Jfhz2-p1KJEjOc2-6A0yhKljBi91n1YNDqVAI8xwkGG1owS07oN_NnlGGZQbtfvt3Q/exec";
 
             try {
+                // Добавляем одинарную кавычку перед номером, чтобы Google Таблицы не считали его формулой
+                const cleanPhone = data.phone.startsWith('+') ? "'" + data.phone : data.phone;
+
                 await fetch(webhookUrl, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8',
+                    },
                     body: JSON.stringify({
-                        ...data,
+                        name: data.name,
+                        phone: cleanPhone,
+                        message: data.message,
                         timestamp: new Date().toLocaleString("ru-RU"),
                         source: window.location.hostname
                     }),
